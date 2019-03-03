@@ -1,23 +1,36 @@
 package br.com.luciano.infra;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
-public class CriadorDeEntityManager {
-	
-	public EntityManager getManager() {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("seuPU");
-		EntityManager manager = factory.createEntityManager();
+import br.com.caelum.vraptor.ioc.Component;
+import br.com.caelum.vraptor.ioc.ComponentFactory;
+import br.com.caelum.vraptor.ioc.RequestScoped;
 
-		return manager;
+@Component
+@RequestScoped
+public class CriadorDeEntityManager implements ComponentFactory<EntityManager> {
+
+	private EntityManagerFactory factory;
+	   private EntityManager em;
+	 
+	public CriadorDeEntityManager(EntityManagerFactory factory) {
+		this.factory = factory;
 	}
-
-	public static EntityManager getEntityManager() {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("seuPU");
-		    EntityManager manager = factory.createEntityManager();
 	
-		    manager.getTransaction().begin();
-		return manager;
-	}
+	@PostConstruct
+	   public void abre() {
+	     this.em = factory.createEntityManager();
+	     em.getTransaction().begin();
+	   }
+	   public EntityManager getInstance() {
+	     return this.em;
+	   }
+	   @PreDestroy
+	   public void fecha() {
+	     this.em.close();
+	   }
+	
 }

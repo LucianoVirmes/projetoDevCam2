@@ -1,8 +1,6 @@
 package br.com.luciano.controller;
 
 import java.util.List;
-
-import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.luciano.dao.PessoaDAO;

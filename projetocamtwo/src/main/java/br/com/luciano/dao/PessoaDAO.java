@@ -5,15 +5,14 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import br.com.caelum.vraptor.ioc.Component;
-import br.com.luciano.infra.CriadorDeEntityManager;
 import br.com.luciano.model.Pessoa;
 @Component
 public class PessoaDAO {
 
 	private final EntityManager entityManager;
 
-	public PessoaDAO() {
-		this.entityManager = CriadorDeEntityManager.getEntityManager();
+	public PessoaDAO(EntityManager entityManager) {
+		this.entityManager = entityManager;
 	}
 
 	public void salva(Pessoa pessoa) {

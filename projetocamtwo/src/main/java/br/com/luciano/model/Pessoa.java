@@ -1,28 +1,27 @@
 package br.com.luciano.model;
 
 import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Pessoa")
+@Table(name="pessoa")
 public class Pessoa {
 	@Id
 	@GeneratedValue
-	Long ID;
-	String nome;
-	Date dataNascimento;
-	Date dataAdmição;
+	private Integer ID;
+	private String nome;
+	private Date dataNascimento;
+	private Date dataAdmissao;
 
 	// getters e setters
-	public Long getID() {
+	public Integer getID() {
 		return ID;
 	}
 
-	public void setID(Long iD) {
+	public void setID(Integer iD) {
 		ID = iD;
 	}
 
@@ -42,12 +41,18 @@ public class Pessoa {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public Date getDataAdmição() {
-		return dataAdmição;
+	public Date getDataAdmissao() {
+		return dataAdmissao;
 	}
 
-	public void setDataAdmição(Date dataAdmição) {
-		this.dataAdmição = dataAdmição;
+	public void setDataAdmissao(Date dataAdmissao) {
+		this.dataAdmissao = dataAdmissao;
+	}
+
+	@Override
+	public String toString() {
+		return "Pessoa [ID=" + ID + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", dataAdmissao="
+				+ dataAdmissao + "]";
 	}
 
 }

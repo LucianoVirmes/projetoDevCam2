@@ -8,6 +8,13 @@
 <title>Cadastro de Pessoas</title>
 </head>
 <body>
+	<div id="erros">
+  <ul>
+    <c:forEach items="${errors}" var="error">
+      <li>${error.category } - ${error.message }</li>
+    </c:forEach>
+  </ul>
+</div>
 	<form action="adicionapessoa">
    <fieldset>
      <legend>Adicionar Pessoa</legend>
@@ -15,11 +22,11 @@
      <label for="nome">Nome:</label>
      <input id="nome" type="text" name="pessoa.nome"/>
      
-     <label for="descricao">Data Admissão:</label>
-     <textarea id="descricao" name="pessoa.dataAdmissao"></textarea>
+     <label for="dataAdmissao">Data Admissao:</label>
+     <input id="dataAdmissao" type="date" name="pessoa.dataAdmissao"/>
      
-     <label for="preco">Data Nascimento:</label>
-     <input id="preco" type="text" name="pessoa.dataNascimento"/>
+     <label for="dataNascimento">Data Nascimento:</label>
+     <input id="dataNascimento" type="date" name="pessoa.dataNascimento"/>
      
      <button type="submit">Enviar</button>
    </fieldset>

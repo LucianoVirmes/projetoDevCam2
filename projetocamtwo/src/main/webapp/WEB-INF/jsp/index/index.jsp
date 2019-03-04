@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
- <h2>opa ${string}</h2>
- 
-</body>
-</html>
+	<html>
+		<head>
+			<meta charset="ISO-8859-1">
+			<title>Insert title here</title>
+		</head>
+		<body>
+ 			<a href="pessoa/formulario"> Adicionar Pessoas</a><br>
+ 			<a href="pessoa/lista"> Listar Pessoas</a>
+		</body>
+	</html>

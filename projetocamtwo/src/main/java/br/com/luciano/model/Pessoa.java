@@ -11,18 +11,18 @@ import javax.persistence.Table;
 public class Pessoa {
 	@Id
 	@GeneratedValue
-	private Integer ID;
+	private Integer id;
 	private String nome;
 	private Date dataNascimento;
 	private Date dataAdmissao;
 
 	// getters e setters
-	public Integer getID() {
-		return ID;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setID(Integer iD) {
-		ID = iD;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -51,7 +51,7 @@ public class Pessoa {
 
 	@Override
 	public String toString() {
-		return "Pessoa [ID=" + ID + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", dataAdmissao="
+		return "Pessoa [id=" + id + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", dataAdmissao="
 				+ dataAdmissao + "]";
 	}
 

@@ -1,0 +1,16 @@
+.tabela{
+	margin: 0 auto;
+	background-color: #eee;
+	
+	border: solid 1px;
+}
+.linkIndex{
+	background-color: red;
+	margin: 0 auto;
+	text-align: center;
+}
+body{
+	background-color: #ddd;
+}
+
+	

@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<link href="../css/styleLista.css" rel="stylesheet" type="text/css">
+<title>Lista de Pessoas</title>
+<link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 	
 <body>

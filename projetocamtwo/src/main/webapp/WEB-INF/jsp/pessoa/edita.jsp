@@ -15,8 +15,8 @@
     
    
     <p id="nome">Nome: ${pessoa.nome }
-   	<p id="dataAdmissao">Data Admissão: ${pessoa.dataAdmissao}
-    <p id="dataNascimento">Data Aniversário: ${pessoa.dataNascimento}
+   	<p id="dataAdmissao">Data de Admissão: ${pessoa.dataAdmissao}
+    <p id="dataNascimento">Data de Nascimento: ${pessoa.dataNascimento}
    </fieldset>
    <hr>
    <fieldset>
@@ -34,7 +34,7 @@
     <label for="dataNascimento">Data Aniversario:</label>
     <input id="dataNascimento" type="date" 
       name="pessoa.dataNascimento" value="${pessoa.dataNascimento }"/>
-  
+  <input class="voltar" type="button" value="Voltar" onclick="window.location.href='../'" />
     <button type="submit">Enviar</button>
   </fieldset>
 </form>

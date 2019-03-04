@@ -6,14 +6,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Index</title>
-<link href="../css/style.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
+
+	<body>
 	
-<body>
-	
-			<div class="linkIndex">
-	 			<a href="pessoa/formulario"> Adicionar Pessoas</a><br>
-	 			<a href="pessoa/lista"> Listar Pessoas</a>
-	 		</div>	
-		</body>
-	</html>
+			<input class="indexBtn" type="button" value="Adicionar Pessoa" onclick="window.location.href='pessoa/formulario'" /><br>
+	 		<input class="indexBtn" type="button" value="Listar Pessoa" onclick="window.location.href='pessoa/lista'" />
+	 			
+	</body>
+</html>

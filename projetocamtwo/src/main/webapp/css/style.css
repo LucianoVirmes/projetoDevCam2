@@ -4,13 +4,15 @@
 	
 	border: solid 1px;
 }
-.linkIndex{
-	background-color: red;
-	margin: 0 auto;
-	text-align: center;
-}
 body{
 	background-color: #ddd;
 }
-
-	
+.voltar {
+	margin-top: 3%;
+	margin-left: 50%;
+}
+.indexBtn {
+	margin-top: 1%;
+	margin-left: 50%;
+	height: 60px;
+}

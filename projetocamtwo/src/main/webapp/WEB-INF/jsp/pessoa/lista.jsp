@@ -14,8 +14,8 @@
   <thead>
     <tr>
       <th>Nome</th>
-      <th>Data Admissao</th>
-      <th>Data Nascimento</th>
+      <th>Data de Admissão</th>
+      <th>Data de Nascimento</th>
     </tr>
   </thead>
   <tbody>
@@ -24,11 +24,12 @@
         <td>${pessoa.nome }</td>
         <td>${pessoa.dataAdmissao }</td>
         <td>${pessoa.dataNascimento }</td>
-        <td><a href="edita?id=${pessoa.id }">Editar</a></td>
-         <td><a href="remove?id=${pessoa.id }">Remover</a></td>
+        <td><input type="button" value="Editar" onclick="window.location.href='edita?id=${pessoa.id }'" /></td>
+         <td><input type="button" value="Excluir" onclick="window.location.href='remove?id=${pessoa.id }'" /></td>
       </tr>          
     </c:forEach>
   </tbody>
 </table>
+	<input class="voltar" type="button" value="Voltar" onclick="window.location.href='../'" />
 </body>
 </html>

@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
 <title>Cadastro de Pessoas</title>
 </head>
 <body>
@@ -30,6 +31,8 @@
      
      <button type="submit">Enviar</button>
    </fieldset>
+   
+  <input class="voltar" type="button" value="Voltar" onclick="window.location.href='../'" />
  </form>
 </body>
 </html>

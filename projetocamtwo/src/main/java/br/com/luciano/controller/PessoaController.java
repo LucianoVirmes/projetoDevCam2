@@ -26,6 +26,18 @@ public class PessoaController {
 	}
 
 	public void altera(Pessoa pessoa) {
+		if (pessoa.getNome() == null || pessoa.getNome().length() < 3) {
+			validator.add(new ValidationMessage("Nome é obrigatório e precisa ter mais de 3 letras", "pessoa.nome"));
+		}
+		if (pessoa.getDataNascimento() == null) {
+			validator.add(new ValidationMessage("A data de nascimento é obrigatória!", "pessoa.dataNascimento"));
+		}
+		if (pessoa.getDataAdmissao() == null) {
+			validator.add(new ValidationMessage("A data de admissão é obrigatória!", "pessoa.dataAdmissao"));
+		}
+		
+		validator.onErrorRedirectTo(this).edita(pessoa.getId());;
+		
 		dao.atualiza(pessoa);
 		result.redirectTo(this).lista();
 	}

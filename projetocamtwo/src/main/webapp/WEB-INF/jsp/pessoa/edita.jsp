@@ -9,6 +9,14 @@
 </head>
 <meta charset="ISO-8859-1">
 <body>
+	<div id="erros">
+  <ul>
+    <c:forEach items="${errors}" var="error">
+      <li>${error.category } - ${error.message }</li>
+    </c:forEach>
+  </ul>
+</div>
+
 <form action="altera">
   <fieldset>
     <legend>Editar Pessoa</legend>

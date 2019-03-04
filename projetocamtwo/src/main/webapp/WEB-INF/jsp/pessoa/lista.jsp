@@ -6,10 +6,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link href="../css/styleLista.css" rel="stylesheet" type="text/css">
 </head>
 	
 <body>
-<table>
+<table class="tabela">
   <thead>
     <tr>
       <th>Nome</th>

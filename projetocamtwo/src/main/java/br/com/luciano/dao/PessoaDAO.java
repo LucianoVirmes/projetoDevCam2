@@ -51,11 +51,11 @@ public class PessoaDAO {
 		if (pessoa.getNome() == null || pessoa.getNome().length() < 3) {
 			validator.add(new ValidationMessage("Nome é obrigatório e precisa ter mais de 3 letras", "pessoa.nome"));
 		}
-		if (pessoa.getDataNascimento() == null) {
-			validator.add(new ValidationMessage("A data de nascimento é obrigatória!", "pessoa.dataNascimento"));
+		if (pessoa.getDataNascimento() == null || pessoa.getDataNascimento().toString().length() > 8 ) {
+			validator.add(new ValidationMessage("Preencha a data de nascimento com uma data válida!", "pessoa.dataNascimento"));
 		}
-		if (pessoa.getDataAdmissao() == null) {
-			validator.add(new ValidationMessage("A data de admissão é obrigatória!", "pessoa.dataAdmissao"));
+		if (pessoa.getDataAdmissao() == null  || pessoa.getDataNascimento().toString().length() > 8 ) {
+			validator.add(new ValidationMessage("Preencha a data de admissão com uma data válida!!", "pessoa.dataAdmissao"));
 		}
 
 	}

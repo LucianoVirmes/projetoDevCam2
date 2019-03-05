@@ -16,23 +16,25 @@
     </c:forEach>
   </ul>
 </div>
-	<form action="adicionapessoa" method="post">
+	<form action="adicionapessoa" method="post" name="pessoa" onSubmit="return enviarDados();">
    <fieldset>
      <legend>Adicionar Pessoa</legend>
      
      <label for="nome">Nome:</label>
-     <input id="nome" type="text" name="pessoa.nome"/>
+     <input id="nome" required="required" type="text" name="pessoa.nome"/>
      
      <label for="dataAdmissao">Data Admissao:</label>
-     <input id="dataAdmissao" type="date" name="pessoa.dataAdmissao"/>
+     <input id="dataAdmissao" required="required" type="date" name="pessoa.dataAdmissao"/>
      
      <label for="dataNascimento">Data Nascimento:</label>
-     <input id="dataNascimento" type="date" name="pessoa.dataNascimento"/>
+     <input id="dataNascimento" required="required" type="date" name="pessoa.dataNascimento"/>
      
      <button type="submit">Enviar</button>
    </fieldset>
    
   <input class="voltar" type="button" value="Voltar" onclick="window.location.href='../'" />
+   <script type="text/javascript" src="../js/script.js"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
  </form>
 </body>
 </html>

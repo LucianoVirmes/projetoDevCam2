@@ -1,6 +1,9 @@
 package br.com.luciano.controller;
 
 import java.util.List;
+
+import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
@@ -23,7 +26,7 @@ public class PessoaController {
 	public void formulario() {
 
 	}
-
+	@Post
 	public void altera(Pessoa pessoa) {
 		dao.valida(pessoa);
 		validator.onErrorRedirectTo(this).edita(pessoa.getId());
@@ -31,13 +34,13 @@ public class PessoaController {
 		result.redirectTo(this).lista();
 	}
 
-
+	@Get
 	public List<Pessoa> lista() {
 
 		return dao.listar();
 
 	}
-
+	@Post
 	public void adicionapessoa(Pessoa pessoa) {
 		// valida os dados que o usuário digitar
 		dao.valida(pessoa);
@@ -47,7 +50,7 @@ public class PessoaController {
 		dao.salva(pessoa);
 		result.redirectTo(this).lista();
 	}
-
+	@Get
 	public void remove(Integer id) {
 		Pessoa pessoa = dao.busca(id);
 		dao.remove(pessoa);

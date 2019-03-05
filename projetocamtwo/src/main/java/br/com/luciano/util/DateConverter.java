@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 
 import br.com.caelum.vraptor.Convert;
 import br.com.caelum.vraptor.Converter;
+import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Post;
 
 @Convert(Date.class)
 public class DateConverter implements Converter<Date> {

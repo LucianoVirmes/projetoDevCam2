@@ -35,11 +35,9 @@ public class PessoaDAO {
 	public void atualiza(Pessoa pessoa) {
 		entityManager.merge(pessoa);
 		entityManager.getTransaction().commit();
-		;
 	}
 
 	public List<Pessoa> listar() {
-
 		List<Pessoa> lista = entityManager.createQuery("select e from Pessoa e", Pessoa.class).getResultList();
 		return lista;
 	}

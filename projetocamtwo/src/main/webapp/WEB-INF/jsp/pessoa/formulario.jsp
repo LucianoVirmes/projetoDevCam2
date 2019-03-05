@@ -16,7 +16,7 @@
     </c:forEach>
   </ul>
 </div>
-	<form action="adicionapessoa">
+	<form action="adicionapessoa" method="post">
    <fieldset>
      <legend>Adicionar Pessoa</legend>
      

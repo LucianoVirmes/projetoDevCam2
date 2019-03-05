@@ -1,5 +1,7 @@
 package br.com.luciano.dao;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -51,12 +53,13 @@ public class PessoaDAO {
 		if (pessoa.getNome() == null || pessoa.getNome().length() < 3) {
 			validator.add(new ValidationMessage("Nome é obrigatório e precisa ter mais de 3 letras", "pessoa.nome"));
 		}
-		if (pessoa.getDataNascimento() == null || pessoa.getDataNascimento().toString().length() > 8 ) {
+		if (pessoa.getDataNascimento() == null || pessoa.getDataNascimento().toString().length() > 28 ) {
 			validator.add(new ValidationMessage("Preencha a data de nascimento com uma data válida!", "pessoa.dataNascimento"));
 		}
-		if (pessoa.getDataAdmissao() == null  || pessoa.getDataNascimento().toString().length() > 8 ) {
+		if (pessoa.getDataAdmissao() == null || pessoa.getDataAdmissao().toString().length() > 28) {
 			validator.add(new ValidationMessage("Preencha a data de admissão com uma data válida!!", "pessoa.dataAdmissao"));
 		}
-
+		System.out.println();
+		System.out.println();
 	}
 }

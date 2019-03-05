@@ -13,7 +13,7 @@
 <body>
 <table class="tabela">
   <thead>
-    <tr>
+   <tr>
       <th>Nome</th>
       <th>Data de Admissão</th>
       <th>Data de Nascimento</th>
@@ -22,16 +22,19 @@
   </thead>
   <tbody>
     <c:forEach items="${pessoaList}" var="pessoa">
-      <tr class="trLista">
+      <tr id="pessoa-${pessoa.id}">
         <td>${pessoa.nome }</td>
         <td><fmt:formatDate value="${pessoa.dataAdmissao}" type="both" pattern="dd/MM/yyyy"/></td>
         <td><fmt:formatDate value="${pessoa.dataNascimento}" type="both" pattern="dd/MM/yyyy"/></td>
         <td><input type="button" value="Editar" onclick="window.location.href='edita?id=${pessoa.id }'" /></td>
-         <td><input type="button" value="Excluir" onclick="window.location.href='remove?id=${pessoa.id }'" /></td>
+         <td><a href="javascript:void(0);" onclick="remover(${pessoa.id})">Remover</a></td>
       </tr>
     </c:forEach>
   </tbody>
 </table>
 	<input class="voltar" type="button" value="Voltar" onclick="window.location.href='../'" />
+	
+	 <script type="text/javascript" src="../js/script.js"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
 </body>
 </html>

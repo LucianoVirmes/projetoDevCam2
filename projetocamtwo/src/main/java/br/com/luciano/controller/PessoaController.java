@@ -50,11 +50,11 @@ public class PessoaController {
 		dao.salva(pessoa);
 		result.redirectTo(this).lista();
 	}
-	@Get
+	
 	public void remove(Integer id) {
 		Pessoa pessoa = dao.busca(id);
 		dao.remove(pessoa);
-		result.redirectTo(PessoaController.class).lista();
+		result.nothing();
 	}
 
 	public Pessoa edita(Integer id) {

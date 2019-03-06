@@ -4,11 +4,19 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import br.com.luciano.dao.AbstractFactory;
+
+@SuppressWarnings("serial") // ignora warning do serial
 @Entity
-@Table(name="pessoa")
-public class Pessoa {
+@NamedQueries({ @NamedQuery(name = Pessoa.listarTodas, query = "select p from Pessoa p") })
+@Table(name = "pessoa")
+public class Pessoa implements AbstractFactory {
+
+	public static final String listarTodas = "buscaPessoas";
 	@Id
 	@GeneratedValue
 	private Integer id;
@@ -53,6 +61,11 @@ public class Pessoa {
 	public String toString() {
 		return "Pessoa [id=" + id + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", dataAdmissao="
 				+ dataAdmissao + "]";
+	}
+
+	public Integer getCodigo() {
+
+		return id;
 	}
 
 }

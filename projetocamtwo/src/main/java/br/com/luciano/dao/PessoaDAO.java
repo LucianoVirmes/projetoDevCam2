@@ -1,10 +1,6 @@
 package br.com.luciano.dao;
 
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
-
-import javax.persistence.EntityManager;
 
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.ioc.Component;
@@ -12,54 +8,73 @@ import br.com.caelum.vraptor.validator.ValidationMessage;
 import br.com.luciano.model.Pessoa;
 
 @Component
-public class PessoaDAO {
+public class PessoaDAO extends GenericDAO<Pessoa> {
 
-	private final EntityManager entityManager;
 	private final Validator validator;
 
-	public PessoaDAO(EntityManager entityManager, Validator validator) {
-		this.entityManager = entityManager;
+	public PessoaDAO(Validator validator) {
+
 		this.validator = validator;
 	}
 
 	public void salva(Pessoa pessoa) {
-
-		entityManager.persist(pessoa);
-		entityManager.getTransaction().commit();
+		salvar(pessoa);
 	}
 
 	public Pessoa busca(Integer id) {
-		Pessoa p = new Pessoa();
-		p = entityManager.find(Pessoa.class, id);
-		return p;
+		conectar();
+
+		try {
+			return em.find(Pessoa.class, id);
+
+		} catch (Exception e) {
+			return null;
+		} finally {
+			desconectar();
+		}
+
 	}
 
 	public void atualiza(Pessoa pessoa) {
-		entityManager.merge(pessoa);
-		entityManager.getTransaction().commit();
+		conectar();
+		try {
+			em.merge(pessoa);
+			em.getTransaction().begin();
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			System.out.println(e);
+			em.getTransaction().rollback();
+		} finally {
+			desconectar();
+		}
+
 	}
 
-	public List<Pessoa> listar() {
-		List<Pessoa> lista = entityManager.createQuery("select e from Pessoa e", Pessoa.class).getResultList();
-		return lista;
+	public List<Pessoa> listarTodos() {
+		return listar(Pessoa.listarTodas, Pessoa.class);
+
 	}
 
 	public void remove(Pessoa pessoa) {
-		entityManager.remove(pessoa);
-		entityManager.getTransaction().commit();
+		excluir(pessoa.getCodigo(), Pessoa.class);
 	}
 
 	public void valida(Pessoa pessoa) {
-		if (pessoa.getNome() == null || pessoa.getNome().length() < 3) {
-			validator.add(new ValidationMessage("Nome é obrigatório e precisa ter mais de 3 letras", "pessoa.nome"));
+		// se nome não for nullo e não possuir menos de 3 ou mais de 40 carácteres
+		if (pessoa.getNome() == null || pessoa.getNome().length() < 3 || pessoa.getNome().length()> 40) {
+			validator.add(new ValidationMessage("Nome é obrigatório e precisa ter mais de 3 letras e menos de 40!", "pessoa.nome"));
 		}
-		if (pessoa.getDataNascimento() == null || pessoa.getDataNascimento().toString().length() > 28 ) {
-			validator.add(new ValidationMessage("Preencha a data de nascimento com uma data válida!", "pessoa.dataNascimento"));
+		// se data não for nula  e maior que 28 carácteres (contando dias, horas e minutos, dias da semana...
+				// mas na tela mostra apenas dia mes ano)
+		if (pessoa.getDataNascimento() == null || pessoa.getDataNascimento().toString().length() > 28) {
+			validator.add(new ValidationMessage("Preencha a data de nascimento com uma data válida!",
+					"pessoa.dataNascimento"));
 		}
+		// se data não for nula  e maior que 28 carácteres (contando dias, horas e minutos, dias da semana...
+				// mas na tela mostra apenas dia mes ano)
 		if (pessoa.getDataAdmissao() == null || pessoa.getDataAdmissao().toString().length() > 28) {
-			validator.add(new ValidationMessage("Preencha a data de admissão com uma data válida!!", "pessoa.dataAdmissao"));
+			validator.add(
+					new ValidationMessage("Preencha a data de admissão com uma data válida!!", "pessoa.dataAdmissao"));
 		}
-		System.out.println();
-		System.out.println();
 	}
 }

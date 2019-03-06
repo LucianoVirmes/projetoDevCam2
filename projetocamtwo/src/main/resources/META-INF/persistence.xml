@@ -4,7 +4,6 @@
   <persistence-unit name="seuPU">
     <!-- Implementação do JPA -->
     <!-- Lista de entidades -->
-    <class>br.com.luciano.model.Categoria</class>
     <class>br.com.luciano.model.Pessoa</class>
     <properties>
       <!-- Propriedades JDBC -->

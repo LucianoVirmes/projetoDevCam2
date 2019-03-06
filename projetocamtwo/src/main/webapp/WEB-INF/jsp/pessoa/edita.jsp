@@ -18,7 +18,7 @@
   </ul>
 </div>
 
-<form action="altera" method="post">
+<form action="<c:url value="/pessoa/lista/alteracao/${pessoa.id }"/>" method="post">
   <fieldset>
     <legend>Editar Pessoa</legend>
     

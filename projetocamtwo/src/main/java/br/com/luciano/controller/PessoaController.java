@@ -2,6 +2,7 @@ package br.com.luciano.controller;
 
 import java.util.List;
 
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
@@ -28,22 +29,22 @@ public class PessoaController {
 	public void formulario() {
 
 	}
-	 @Post
+	@Post("pessoa/lista/alteracao/{pessoa.id}")
 	public void altera(Pessoa pessoa) {
 		// valida os dados que o usuário digitar
 		dao.valida(pessoa);
-		validator.onErrorRedirectTo(this).edita(pessoa.getId());
+		validator.onErrorRedirectTo(this).edita(pessoa);;
 		// se passar do validador salva
 		dao.atualiza(pessoa);
 		result.redirectTo(this).lista();
 	}
-	@Get
+	@Get("pessoa/lista")
 	public List<Pessoa> lista() {
 
 		return dao.listarTodos();
 
 	}
-	@Post
+	@Post("pessoa/formulario")
 	public void adicionapessoa(Pessoa pessoa) {
 		// valida os dados que o usuário digitar
 		dao.valida(pessoa);
@@ -53,16 +54,15 @@ public class PessoaController {
 		dao.salva(pessoa);
 		result.redirectTo(this).lista();
 	}
-	@Get
-	public void remove(Integer id) {
-		Pessoa pessoa = dao.busca(id);
+	@Get("pessoa/lista/remocao/{pessoa.id}")
+	public void remove(Pessoa pessoa) {
 		dao.remove(pessoa);
 		result.nothing();
 	}
+	 @Get("pessoa/lista/edicao/{pessoa.id}")
+	public Pessoa edita(Pessoa pessoa) {
 
-	public Pessoa edita(Integer id) {
-
-		return dao.busca(id);
+		return dao.busca(pessoa.getCodigo());
 
 	}
 	

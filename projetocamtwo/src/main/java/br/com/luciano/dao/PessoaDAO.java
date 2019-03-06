@@ -5,6 +5,7 @@ import java.util.List;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.validator.ValidationMessage;
+import br.com.luciano.controller.PessoaController;
 import br.com.luciano.model.Pessoa;
 
 @Component
@@ -36,7 +37,9 @@ public class PessoaDAO extends GenericDAO<Pessoa> {
 	}
 
 	public void atualiza(Pessoa pessoa) {
+		
 		conectar();
+		
 		try {
 			em.merge(pessoa);
 			em.getTransaction().begin();

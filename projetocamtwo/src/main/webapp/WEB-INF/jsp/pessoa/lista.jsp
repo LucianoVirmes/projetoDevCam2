@@ -26,8 +26,8 @@
         <td>${pessoa.nome }</td>
         <td><fmt:formatDate value="${pessoa.dataAdmissao}" type="both" pattern="dd/MM/yyyy"/></td>
         <td><fmt:formatDate value="${pessoa.dataNascimento}" type="both" pattern="dd/MM/yyyy"/></td>
-        <td><input type="button" value="Editar" onclick="window.location.href='edita?id=${pessoa.id }'" /></td>
-         <td><a href="javascript:void(0);" onclick="remover(${pessoa.id})">Remover</a></td>
+          <td><a href="lista/edicao/${pessoa.id}"><Button>Editar</Button></a></td>
+         <td><a href="javascript:void(0);" onclick="remover(${pessoa.id})"><Button>Remover</Button></a></td>
       </tr>
     </c:forEach>
   </tbody>

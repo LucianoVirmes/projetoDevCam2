@@ -16,7 +16,7 @@
     </c:forEach>
   </ul>
 </div>
-	<form action="adicionapessoa" method="post" name="pessoa" onSubmit="return enviarDados();">
+	<form action="<c:url value="/pessoa/formulario"/>" method="POST" name="pessoa">
    <fieldset>
      <legend>Adicionar Pessoa</legend>
      

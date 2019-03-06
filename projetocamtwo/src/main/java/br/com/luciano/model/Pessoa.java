@@ -7,14 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
-import br.com.luciano.dao.AbstractFactory;
+import br.com.luciano.dao.GenericDAO;
 
 @SuppressWarnings("serial") // ignora warning do serial
 @Entity
 @NamedQueries({ @NamedQuery(name = Pessoa.listarTodas, query = "select p from Pessoa p") })
 @Table(name = "pessoa")
-public class Pessoa implements AbstractFactory {
+public class Pessoa implements GenericDAO {
 
 	public static final String listarTodas = "buscaPessoas";
 	@Id

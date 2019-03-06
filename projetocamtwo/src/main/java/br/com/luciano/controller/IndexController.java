@@ -6,8 +6,7 @@ import br.com.caelum.vraptor.Resource;
 public class IndexController {
 	
 	@Get("/")
-	public String index() {
-		return "ola";
+	public void index() {
 	}
 	
 

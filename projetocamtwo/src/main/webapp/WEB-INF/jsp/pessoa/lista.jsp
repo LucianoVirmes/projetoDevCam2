@@ -27,14 +27,17 @@
         <td><fmt:formatDate value="${pessoa.dataAdmissao}" type="both" pattern="dd/MM/yyyy"/></td>
         <td><fmt:formatDate value="${pessoa.dataNascimento}" type="both" pattern="dd/MM/yyyy"/></td>
           <td><a href="lista/edicao/${pessoa.id}"><Button>Editar</Button></a></td>
-         <td><a href="javascript:void(0);" onclick="remover(${pessoa.id})"><Button>Remover</Button></a></td>
+         <td><a href="#" onclick="javascript: remover(${pessoa.id});"><Button>Remover</Button></a></td>
       </tr>
     </c:forEach>
   </tbody>
 </table>
-	<input class="voltar" type="button" value="Voltar" onclick="window.location.href='../'" />
-	
-	 <script type="text/javascript" src="../js/script.js"></script>
+		
+
+	 <input class="voltar" type="button" value="Voltar" onclick="window.location.href='../'" />
+	 
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+	 <script type="text/javascript" src="../js/script.js" charset="utf-8"></script>
+	
 </body>
 </html>

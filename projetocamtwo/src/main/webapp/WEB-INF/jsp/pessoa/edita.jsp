@@ -5,8 +5,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<link href="<c:url value="/css/style.css"/>" rel="stylesheet" type="text/css">
 <title>Editar</title>
-<link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 <meta charset="ISO-8859-1">
 <body>
@@ -43,7 +44,7 @@
     <label for="dataNascimento">Data Aniversario:</label>
     <input id="dataNascimento" type="date" 
       name="pessoa.dataNascimento" value=<fmt:formatDate value="${pessoa.dataNascimento}" type="both" pattern="dd/MM/yyyy"/>/>
-  <input class="voltar" type="button" value="Voltar" onclick="window.location.href='../'" />
+  <input class="voltar" type="button" value="Voltar" onclick="window.location.href='/vraptor03/pessoa/lista'" />
     <button type="submit">Enviar</button>
   </fieldset>
 </form>

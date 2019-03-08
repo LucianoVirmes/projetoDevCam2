@@ -1,11 +1,25 @@
+.menuGeral{
+	text-align: center;
+	font-size: 20px;
+}
+.btnMenu{
+	font-size: 25px;
+	text-align: center;
+	border-radius: 12px;
+	margin-top: 20px;
+}
 .tabela{
 	margin: 0 auto;
 	background-color: #eee;
-	
 	border: solid 1px;
 }
 body{
 	background-color: #ddd;
+}
+button {
+	border-radius: 12px;
+	border: 2px solid;
+
 }
 .voltar {
 	margin-top: 3%;
@@ -15,4 +29,24 @@ body{
 	margin-top: 1%;
 	margin-left: 50%;
 	height: 60px;
+}
+.btnsorteio{
+	font-size: 25px;
+	text-align: center;
+	border-radius: 12px;
+}
+.tituloSorteio {
+	text-align: center;
+}
+#divTextoSorteio {
+	height: 50px;
+	text-align: center;
+	font-size: 35px;
+}
+.sorteioGeral {
+	text-align: center;
+}
+.sorteioGeral button{
+	margin-top: 10px;
+	
 }

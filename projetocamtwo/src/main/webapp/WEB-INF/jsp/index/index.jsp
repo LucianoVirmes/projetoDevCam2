@@ -10,9 +10,12 @@
 </head>
 
 	<body>
-	
-			<input class="indexBtn" type="button" value="Adicionar Pessoa" onclick="window.location.href='pessoa/formulario'" /><br>
-	 		<input class="indexBtn" type="button" value="Listar Pessoa" onclick="window.location.href='pessoa/lista'" />
-	 			
+		
+	 	<div class="menuGeral">	
+	 		<h1>Controle de pessoas CAMTWO</h1>
+	 		<a href="pessoa/formulario"><button class="btnMenu">Adicionar Pessoa</button></a><br>
+	 		<a href="pessoa/lista"><button class="btnMenu">Lista de Pessoas</button></a><br>
+	 		<a href="sorteio/sortear"><button class="btnMenu">Sortear quem fará o café hoje</button></a><br>
+	 	</div>	
 	</body>
 </html>
